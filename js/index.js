@@ -175,11 +175,11 @@ clearSearch.addEventListener('click', function(event) {
 
 eventName.addEventListener('blur',function validateEventName (event) {
 		
-		if (event.target.value == '')
-			event.target.classList.add("invalid-class");
+		if (this.value == '')
+			this.classList.add("invalid-class");
 		 else {
-	      event.target.classList.remove("invalid-class");
-	      event.target.classList.add("valid-class");
+	      this.classList.remove("invalid-class");
+	      this.classList.add("valid-class");
 	      makeSubmitButtonEnabled.call(event.target);
 	      
 	    }
@@ -188,8 +188,7 @@ eventName.addEventListener('blur',function validateEventName (event) {
 eventDate.addEventListener('blur',function validateEventDate (event) {
 
 		function validate() {
-			console.log(event.target.value);
-			if ( event.target.value === '')
+			if (event.target.value == '')
 			event.target.classList.add("invalid-class");
 		 else {
 	      event.target.classList.remove("invalid-class");
@@ -205,11 +204,11 @@ eventDate.addEventListener('blur',function validateEventDate (event) {
 
 eventNames.addEventListener('blur',function validateEventNames (event) {
 		
-		if (event.target.value == '')
-			event.target.classList.add("invalid-class");
+		if (this.value == '')
+			this.classList.add("invalid-class");
 		 else {
-	      event.target.classList.remove("invalid-class");
-	      event.target.classList.add("valid-class");
+	      this.classList.remove("invalid-class");
+	      this.classList.add("valid-class");
 	      makeSubmitButtonEnabled.call(event.target);
 	      
 	    }
