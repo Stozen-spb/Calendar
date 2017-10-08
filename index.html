@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>To do calendar</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="frontend, css, html, Александр Куркин">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=cyrillic" rel="stylesheet">
+	<link rel="shortcut icon" href="favicon.png" >
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/jquery-ui.theme.min.css">
+</head>
+<body>
+	<div class="calendar">
+		<header>
+			<div class="searchbar">
+				<svg  class="magnifier" xmlns="http://www.w3.org/2000/svg" width="16.687" height="16.688" viewBox="0 0 16.687 16.688">
+					<defs>
+					    <style>
+					      .cls-1 {
+					        fill: #B1B1B1;
+					        fill-rule: evenodd;
+					      }
+					    </style>
+					  </defs>
+					  <path id="loopa" class="cls-1" d="M638.155,40.747H637.4l-0.264-.261a6.21,6.21,0,1,0-.675.675l0.263,0.262v0.755l4.773,4.76,1.423-1.422Zm-5.731,0a4.291,4.291,0,1,1,4.3-4.291A4.294,4.294,0,0,1,632.424,40.747Z" transform="translate(-626.219 -30.25)"/>
+				</svg>
+				<input type="text" class="searchbar__input" id="superSearch">
+				<div class="searchbar__closs-button" id="clearSearch"></div>
+			</div>
+		</header>
+		<div class="calendar-body">
+			<div class="table-controls">
+				<button class="table-controls__prev" id="prevMonthButton"></button>
+				<div class="table-controls__text">
+					<span class="month" id="monthField">Март</span>
+					<span class="year" id="yearField">2017</span>
+					
+				</div>
+				<button class="table-controls__next" id="nextMonthButton"></button>
+				<button class="table-controls__today" id="todayButton">Сегодня</button>
+			</div>
+			
+			<table id="calendar">
+				<tr>
+					<td>
+						<div class="td-inner"> 
+							<span class="week-day">Понедельник,</span> 
+							<span class="month-number">25</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="week-day">Вторник,</span> 
+							<span class="month-number">26</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="week-day">Среда,</span> 
+							<span class="month-number">27</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="week-day">Четверг,</span> 
+							<span class="month-number">28</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="week-day">Пятница,</span> 
+							<span class="month-number">1</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+						 </td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="week-day">Суббота,</span> 
+							<span class="month-number">2</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="week-day">Воскресенье,</span> 
+							<span class="month-number">3</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div>  
+					</td>
+
+
+				</tr>
+
+				<tr>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">4</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">5</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">6</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">7</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">8</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">9</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">10</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+				
+
+
+				</tr>
+
+				<tr>
+						<td> 
+						<div class="td-inner"> 
+							<span class="month-number">11</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">12</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">13</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">14</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">15</span>
+							<span class="event-name">Стрижка кота</span>
+							<span class="event-date"> 15.10.2017</span> 
+							<span class="event-names"> Я и кот</span>
+							<span class="event-descr"> не говорить коту </span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">16</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">17</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+
+
+				</tr>
+
+				<tr>
+						<td> 
+						<div class="td-inner"> 
+							<span class="month-number">18</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">19</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">20</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">21</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">22</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">23</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">24</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+				
+
+
+				</tr>
+
+				<tr>
+						<td> 
+						<div class="td-inner"> 
+							<span class="month-number">25</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">26</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">27</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">28</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">29</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">30</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">31</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+
+
+				</tr>
+				<!-- строка для длинных месяцев в 6 строк -->
+				<tr class="long-month">
+						<td> 
+						<div class="td-inner"> 
+							<span class="month-number">4</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">5</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">6</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">7</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">8</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">9</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+					<td> 
+						<div class="td-inner"> 
+							<span class="month-number">10</span>
+							<span class="event-name"></span>
+							<span class="event-date"></span> 
+							<span class="event-names"></span>
+							<span class="event-descr"></span>
+						</div> 
+					</td>
+
+
+				</tr>
+				
+
+			</table>
+		</div>
+
+		<!-- modal content -->
+
+		<div class="add-event left right" id="addEventContainer">
+			<form action="#echo" class="add-event__form" name="event"> 
+				<input type="text" placeholder="Событие" name="eventName" >
+				<input type="text" placeholder="День, месяц, год" name="eventDate" id="eventDate">
+				<input type="text"  placeholder="Имена участников" name="eventNames" >
+				<textarea name="eventDescr"  rows="6"></textarea>
+				<div class="add-event__form__buttons">
+					<button class="add-event__OK" id="addEventOK" disabled>Готово</button>
+					<button class="add-event__delete" id="addEventDelete">Удалить</button>
+				</div>
+
+
+
+
+			</form>
+			<div class="add-event__close-modal-content"></div>
+		</div>
+		
+	</div> <!-- end of wrapper -->
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script> -->
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/russainlLocale.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>	
+</body>
+</html>

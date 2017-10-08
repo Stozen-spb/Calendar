@@ -1,0 +1,24 @@
+.clearfix() {
+&::after {
+content:"";
+display:table;
+clear: both;	
+	}	
+}
+
+.container() {
+min-width:320px;
+width: 100%;
+
+margin: 0 auto;
+
+@media @tablet-width {
+width:100%;
+ }
+
+@media @desktop-width {
+width:100%;
+	
+}
+
+}	
