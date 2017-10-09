@@ -123,6 +123,9 @@ addEventOK.addEventListener('click', function(event) {
 	eventNames.value= '';
 	eventDescr.value= '';
 
+	//скрываем окошко 
+	addEventContainer.style.display = 'none';
+
 	highlightEvents();
 
 
@@ -219,15 +222,9 @@ eventNames.addEventListener('blur',function validateEventNames (event) {
 function makeSubmitButtonEnabled() {
 	var inputs = this.form.getElementsByTagName('input');
 	var sumbitButton = this.form.querySelector('.add-event__OK');
-	var counter = 0;
+	var validInputs = this.form.querySelectorAll('.valid-class');
 	
-	for (var i = 0; i < inputs.length; i++) {
-	if 	( inputs[i].classList.contains('valid-class') )
-		counter++;
-	}
-	
-
-	if ( inputs.length==counter ) 
+	if ( inputs.length == validInputs.length )
 		sumbitButton.disabled = false;
 
 }
