@@ -136,7 +136,7 @@ addEventDelete.addEventListener('click', function(event) {
 	// удаление из массива объектов если дата активного события равна дате в БД то удаляем объект из БД
 	for (var i = 0; i < dbArticles.length; i++) {
 		if  ( dbArticles[i].date === target.querySelector('.event-date').textContent && dbArticles[i].title === target.querySelector('.event-name').textContent )
-			remove(dbArticles,i);
+			dbArticles =  remove(dbArticles,i);
 	}
 
 
